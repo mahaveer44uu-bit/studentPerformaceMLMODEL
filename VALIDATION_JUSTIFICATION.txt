@@ -1,0 +1,113 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║          VALIDATION LIMITS - JUSTIFICATION CARD               ║
+║              (Examiner Questions के Answers)                  ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+┌───────────────────────────────────────────────────────────────┐
+│ Q1: Study Hours की limit 24 क्यों है?                        │
+└───────────────────────────────────────────────────────────────┘
+
+✓ Physical Constraint: एक दिन में सिर्फ 24 घंटे
+✓ Additional Logic: Study + Sleep ≤ 24 hours
+✓ Realistic: Impossible scenarios prevent करता है
+✓ Data Integrity: Invalid data entry रोकता है
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ Q2: Attendance minimum 45% क्यों है?                          │
+└───────────────────────────────────────────────────────────────┘
+
+✓ Educational Policy:
+  • Most institutions require 75% minimum
+  • 45% से कम = majority classes missed
+  • Real exam eligibility issues
+
+✓ ML Model Domain:
+  • Training data 45-100% range में
+  • Out-of-distribution unreliable होगा
+  • Model accuracy compromise होगी
+
+✓ Practical Reasoning:
+  • 45% से कम में prediction meaningless
+  • Student को intervention चाहिए, prediction नहीं
+  • Responsible AI - गलत prediction से better reject
+
+✓ Business Logic:
+  • Quality predictions over quantity
+  • Edge cases को differently handle करें
+  • Future में configurable बना सकते हैं
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ Counter Questions & Answers                                   │
+└───────────────────────────────────────────────────────────────┘
+
+Q: "30% attendance वाला student हो सकता है?"
+
+A: "Yes sir, but उन्हें prediction नहीं, counseling चाहिए.
+    System उन्हें guide करेगा पहले attendance improve करने को.
+    यह responsible AI design है."
+
+
+Q: "क्या इसे configurable बना सकते हैं?"
+
+A: "Absolutely! हमारे config.py में centralized configuration
+    है. Different institutions के लिए different thresholds
+    set कर सकते हैं. Scalable architecture है."
+
+
+Q: "Model 45% से नीचे train नहीं हुआ?"
+
+A: "Correct observation sir! हमारी training data realistic
+    range में है (45-100%). Out-of-distribution data से
+    model behavior unpredictable होगा, इसलिए validation
+    ज़रूरी है."
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ ALL VALIDATION LIMITS & REASONS                               │
+└───────────────────────────────────────────────────────────────┘
+
+Field              Range       Reason
+─────────────────────────────────────────────────────────────
+Study Hours        0-24        Physical day limit
+Attendance         45-100%     Educational policy + ML range
+Previous Marks     0-100       Standard grading system
+Sleep Hours        0-24        Physical day limit
+Target Marks       0-100       Standard grading system
+Study+Sleep        ≤24         Logical day constraint
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ KEY PHRASES (Examiner को impress करने के लिए)               │
+└───────────────────────────────────────────────────────────────┘
+
+✓ "Real-world constraints"
+✓ "Educational policy compliance"
+✓ "Model training domain"
+✓ "Data integrity"
+✓ "Responsible AI design"
+✓ "Quality over quantity"
+✓ "Intervention over prediction for extreme cases"
+✓ "Configurable and scalable architecture"
+✓ "Out-of-distribution detection"
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ CONFIDENCE BOOSTER                                            │
+└───────────────────────────────────────────────────────────────┘
+
+हर validation के पीछे solid reasoning है:
+• Educational standards
+• ML model limitations
+• Real-world constraints
+• Data quality assurance
+• User safety
+
+यह thoughtful design decisions हैं, limitations नहीं!
+
+═══════════════════════════════════════════════════════════════
+
+EXAMINER READY! 💪

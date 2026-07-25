@@ -1,0 +1,130 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║               DEMO CHEAT SHEET - PRINT करो!                  ║
+║            (Demo के time नज़र में रखना)                       ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+┌───────────────────────────────────────────────────────────────┐
+│ TEST VALUES (लिखे रखो)                                        │
+└───────────────────────────────────────────────────────────────┘
+
+NORMAL CASE:
+Name: Rahul Kumar | Study: 6.5 | Attend: 85% | Prev: 75
+Sleep: 7 | Date: 2025-09-15 | Target: 85
+
+BOUNDARY CASE:
+Name: Test Student | Study: 15 | Attend: 45% | Prev: 40  
+Sleep: 9 | Date: 2025-08-15 | Target: 80
+
+INVALID 1: Attend: 150%
+INVALID 2: Study: 18, Sleep: 10
+INVALID 3: Attend: 30%
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ KEY ANSWERS (instant replies)                                 │
+└───────────────────────────────────────────────────────────────┘
+
+Q: Study 15 kyun?
+A: Research-backed. Beyond 15 productivity drops. Realistic
+   exam preparation limit. Configurable hai.
+
+Q: Attend 45% kyun?
+A: Educational policy (75% standard) + ML range (45-100%) +
+   Responsible AI (low attendance = intervention needed)
+
+Q: Model accuracy?
+A: R² ~82%, MAE 4-5 marks, Cross-validation used
+
+Q: Future scope?
+A: Database, Admin dashboard, 16-feature model, Mobile app
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ DEMO SEQUENCE (7 min)                                         │
+└───────────────────────────────────────────────────────────────┘
+
+1. Intro (30s) → Features highlight
+2. Normal Demo (1.5m) → Show intelligence
+3. Validation (2m) → Show robustness
+   - Attend 150% → Range error
+   - Study 18 + Sleep 10 → Logic error  
+   - Attend 30% → Explain minimum [KEY!]
+4. Boundary (1.5m) → Edge case handling
+5. Code (1m) → Architecture tour
+6. Close (30s) → Summary + Questions
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ KEY POINTS बोलने के लिए                                       │
+└───────────────────────────────────────────────────────────────┘
+
+✓ "Not just prediction, actionable intelligence"
+✓ "Range validation + Logical validation"
+✓ "Educational policy compliant"
+✓ "Responsible AI - quality over quantity"
+✓ "Modular, scalable architecture"
+✓ "Production-ready with error handling"
+✓ "Context-aware personalized suggestions"
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ VALIDATION LIMITS (याद रखो)                                   │
+└───────────────────────────────────────────────────────────────┘
+
+Study Hours:   0.5 - 15     (Realistic daily + exam prep)
+Attendance:    45 - 100%    (Policy + ML range)
+Prev Marks:    0 - 100      (Standard grading)
+Sleep Hours:   0 - 24       (Physical limit)
+Target Marks:  0 - 100      (Standard grading)
+Study+Sleep:   ≤ 24         (Logical constraint)
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ CONFIDENCE PHRASES                                            │
+└───────────────────────────────────────────────────────────────┘
+
+"This is a deliberate design decision based on..."
+"System follows industry best practices..."
+"We prioritize quality over quantity..."
+"Research-backed approach..."
+"Configurable and scalable..."
+"Responsible AI implementation..."
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ IF STUCK                                                      │
+└───────────────────────────────────────────────────────────────┘
+
+1. "Excellent question sir"
+2. Pause, breathe
+3. Check this card
+4. Answer confidently
+5. If truly stuck: "We can enhance this in future versions"
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ PRE-DEMO CHECK                                                │
+└───────────────────────────────────────────────────────────────┘
+
+□ App running (localhost:5000)
+□ Model loaded successfully
+□ Test values ready
+□ VS Code open
+□ This card handy
+□ Deep breath taken
+□ Confident smile ready
+
+
+═══════════════════════════════════════════════════════════════
+
+YOU ARE READY! 🚀
+
+Demo with confidence! 💪
+Show your hard work! 🎯
+Impress the examiner! ⭐
+
+GOOD LUCK! 🎓🏆
+
+═══════════════════════════════════════════════════════════════

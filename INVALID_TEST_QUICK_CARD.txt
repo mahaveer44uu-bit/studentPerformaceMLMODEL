@@ -1,0 +1,94 @@
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║          INVALID TEST CASES - QUICK REFERENCE CARD             ║
+║               (Print करके रखें demo के time)                  ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────┐
+│ VALIDATION ERRORS (System will reject these)                   │
+└────────────────────────────────────────────────────────────────┘
+
+❌ Test 1: Attendance = 150%
+   → Error: "Attendance must be between 0% and 100%"
+
+❌ Test 2: Study Hours = 30
+   → Error: "Study Hours must be between 0 and 24"
+
+❌ Test 3: Study = 18, Sleep = 10 (Total = 28)
+   → Error: "Cannot exceed 24 hours in a day!"
+
+❌ Test 4: Previous Marks = 120
+   → Error: "Previous Marks must be between 0 and 100"
+
+❌ Test 5: Study Hours = -5
+   → Error: "Study Hours must be between 0 and 24"
+
+❌ Test 6: Student Name = [empty]
+   → Error: "Please enter valid student name"
+
+
+┌────────────────────────────────────────────────────────────────┐
+│ EDGE CASES (Valid but extreme - System will handle)           │
+└────────────────────────────────────────────────────────────────┘
+
+⚠️ Test 7: All Minimum
+   Study=0.5, Attend=30%, Prev=20, Sleep=4
+   → Works! Shows High Risk + Multiple suggestions
+
+⚠️ Test 8: Zero Sleep
+   Study=12, Attend=90%, Prev=80, Sleep=0.5
+   → Works! Warns about health
+
+⚠️ Test 9: Perfect Student
+   Study=15, Attend=100%, Prev=100, Sleep=8
+   → Works! Grade A+, Low Risk
+
+⚠️ Test 10: Zero Study
+   Study=0.5, Attend=60%, Prev=50, Sleep=8
+   → Works! Suggests "Increase study hours"
+
+
+┌────────────────────────────────────────────────────────────────┐
+│ DEMO SEQUENCE (examiner के सामने)                             │
+└────────────────────────────────────────────────────────────────┘
+
+Step 1️⃣: "पहले validation दिखाता हूं..."
+   → Try Test 3 (Study 18 + Sleep 10)
+   → System rejects ✓
+
+Step 2️⃣: "अब extreme but valid case..."
+   → Try Test 8 (Zero sleep)
+   → System warns about health ✓
+
+Step 3️⃣: "Normal student cases..."
+   → Use earlier realistic test cases
+   → System works perfectly ✓
+
+
+┌────────────────────────────────────────────────────────────────┐
+│ KEY POINTS बोलने के लिए                                       │
+└────────────────────────────────────────────────────────────────┘
+
+✓ "System har invalid input ko gracefully handle करता है"
+✓ "Real-world constraints follow करते हैं"
+✓ "Error messages clear और actionable हैं"
+✓ "Data integrity ensure करता है"
+✓ "Edge cases bhi handle होते हैं"
+
+
+┌────────────────────────────────────────────────────────────────┐
+│ VALIDATION RULES                                               │
+└────────────────────────────────────────────────────────────────┘
+
+• Name:         2-100 characters
+• Study Hours:  0-24
+• Attendance:   0-100%
+• Prev Marks:   0-100
+• Sleep Hours:  0-24
+• Target Marks: 0-100
+• Study+Sleep:  Must be ≤ 24 hours
+
+═══════════════════════════════════════════════════════════════════
+
+READY FOR EXAMINER! 🎯

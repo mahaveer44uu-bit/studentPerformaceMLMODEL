@@ -1,0 +1,78 @@
+╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║     Student Performance Prediction - आसान तरीका          ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📱 तरीका 1: Batch File से (सबसे आसान)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. "RUN_ME.bat" file पर double-click करें
+2. Browser में http://localhost:5000 खोलें
+3. Form भरें और "Predict Performance" दबाएं
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💻 तरीका 2: PowerShell से
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PowerShell खोलें और type करें:
+
+    python app.py
+
+फिर browser में जाएं:
+
+    http://localhost:5000
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 Form में क्या भरें (Example)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Student Name:      Rahul Kumar
+Study Hours:       6.5
+Attendance (%):    85
+Previous Marks:    75
+Sleep Hours:       7
+Exam Date:         2025-09-15  (कोई future date)
+Target Marks:      85
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ अगर Error आए
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. "Model not found" error:
+   → Check करें: models/student_model.pkl file exist करती है
+   
+2. Import errors:
+   → Run करें: pip install flask scikit-learn pandas numpy joblib
+   
+3. Port already in use:
+   → पहले वाला app बंद करें (Ctrl+C)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ आपको क्या दिखेगा
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Prediction page में:
+  • Predicted Marks (जैसे: 78.5)
+  • Grade (जैसे: B - Good)
+  • Study recommendations
+  • Target analysis
+  • Personalized suggestions
+  • Days remaining to exam
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+बस इतना ही! आसान है! 🚀
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

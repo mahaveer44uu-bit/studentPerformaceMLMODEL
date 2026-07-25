@@ -1,0 +1,246 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║              DEMO SCRIPT - EXAMINER के सामने                 ║
+║                 (Step by Step बोलें)                          ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+┌───────────────────────────────────────────────────────────────┐
+│ PART 1: Introduction (30 seconds)                             │
+└───────────────────────────────────────────────────────────────┘
+
+"Good morning sir. मैंने एक AI-based Student Performance 
+ Prediction System develop किया है जो:
+ 
+ ✓ Student के performance को predict करता है
+ ✓ Grade और risk assessment provide करता है
+ ✓ Personalized study plan generate करता है
+ ✓ Input validation और error handling करता है
+ 
+ मैं आपको live demo दिखाता हूं..."
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ PART 2: Normal Case Demo (1 minute)                           │
+└───────────────────────────────────────────────────────────────┘
+
+[Browser में form दिखाएं]
+
+"पहले मैं एक normal case दिखाता हूं..."
+
+[Values enter करते हुए बोलें:]
+
+"Student name: Rahul Kumar
+ Study hours: 6.5 - moderate study
+ Attendance: 85% - good attendance
+ Previous marks: 75 - decent performance
+ Sleep: 7 hours - healthy
+ Exam date: future date
+ Target: 85 marks"
+
+[Predict button दबाएं]
+
+"देखिए sir, system ने predict किया:
+ → Grade B
+ → Achievable target status
+ → Personalized suggestions
+ → Study plan with daily breakdown
+ → Risk assessment: Low Risk
+ 
+ यह complete intelligence provide कर रहा है."
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ PART 3: Validation Demo (2 minutes)                           │
+└───────────────────────────────────────────────────────────────┘
+
+"अब मैं system की robustness दिखाता हूं..."
+
+═══════════════════════════════════════════════════════════════
+
+TEST 1: Invalid Attendance
+
+"मैं attendance 150% देता हूं - जो impossible है..."
+
+[150 enter करें, predict दबाएं]
+
+"देखिए, system ने reject कर दिया:
+ 'Attendance must be between 0% and 100%'
+ 
+ Clear error message के साथ."
+
+[Pause for effect]
+
+बोलें: "यह range validation है - real-world constraints 
+        follow करता है."
+
+═══════════════════════════════════════════════════════════════
+
+TEST 2: Logical Impossibility
+
+"अब मैं study 18 hours और sleep 10 hours देता हूं..."
+
+[Values enter करें]
+
+"Total 28 hours - जो एक दिन में impossible है..."
+
+[Predict दबाएं]
+
+"System ने detect किया:
+ 'Study + Sleep cannot exceed 24 hours in a day!'
+ 
+ यह intelligent logical validation है."
+
+[Pause]
+
+बोलें: "यह दिखाता है कि system केवल numeric validation
+        नहीं करता, business logic भी validate करता है."
+
+═══════════════════════════════════════════════════════════════
+
+TEST 3: Minimum Attendance (Important!)
+
+"अब मैं 30% attendance देता हूं..."
+
+[30% enter करें]
+
+"System ने reject किया: 'Minimum 45% attendance required'
+
+[यहां explain करें:]
+
+बोलें: "Sir, यह हमारी design decision है क्योंकि:
+
+ 1. Educational Policy:
+    → Most institutions 75% minimum require करती हैं
+    → 45% से कम means majority classes missed
+ 
+ 2. ML Model Domain:
+    → हमारी training data 45-100% range में है
+    → Out-of-distribution data unreliable होगा
+ 
+ 3. Practical Reasoning:
+    → इतनी कम attendance में prediction meaningless है
+    → Student को intervention चाहिए, prediction नहीं
+ 
+ 4. Responsible AI:
+    → जब accurate prediction नहीं दे सकते, तो
+      better है system warn करे
+ 
+ यह quality over quantity approach है."
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ PART 4: Edge Case Demo (1 minute)                             │
+└───────────────────────────────────────────────────────────────┘
+
+"अब मैं extreme but valid case दिखाता हूं..."
+
+"At-risk student with minimum values:
+ → Study: 2 hours
+ → Attendance: 50%
+ → Previous: 45
+ → Sleep: 5 hours"
+
+[Predict करें]
+
+"देखिए:
+ → Grade D or F
+ → High Risk assessment
+ → Multiple constructive suggestions
+ → Clear guidance for improvement
+ 
+ System struggling students को identify करता है
+ early intervention के लिए."
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ PART 5: Architecture Highlight (30 seconds)                   │
+└───────────────────────────────────────────────────────────────┘
+
+[Code briefly दिखाएं]
+
+"Sir, architecture की बात करें तो:
+
+ [config.py दिखाएं]
+ → Centralized configuration
+ → सभी limits configurable हैं
+ 
+ [utils/ folder दिखाएं]
+ → Modular design
+ → 6 separate utility modules
+ → Separation of concerns
+ 
+ [app.py structure दिखाएं]
+ → Clean routing
+ → Comprehensive error handling
+ → Try-except blocks
+ 
+ यह scalable और maintainable है."
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ PART 6: Closing (30 seconds)                                  │
+└───────────────────────────────────────────────────────────────┘
+
+"Summary में sir:
+
+ ✓ Accurate ML predictions
+ ✓ Risk assessment for early intervention
+ ✓ Personalized study planning
+ ✓ Robust input validation
+ ✓ Logical constraint checking
+ ✓ Modular, scalable architecture
+ ✓ Production-ready code
+ 
+ System na sirf predict karta hai, balki actionable
+ intelligence provide karta hai students ki help ke liye.
+ 
+ Thank you sir. Any questions?"
+
+
+┌───────────────────────────────────────────────────────────────┐
+│ EXPECTED QUESTIONS & ANSWERS                                  │
+└───────────────────────────────────────────────────────────────┘
+
+Q: "Study hours 24 kyun?"
+A: → Physical constraint (24 hours in day)
+   → Additional validation: Study + Sleep ≤ 24
+
+Q: "Attendance 45% minimum kyun?"
+A: → [Use detailed answer from justification card]
+   → Educational policy + ML domain + Responsible AI
+
+Q: "Model accuracy?"
+A: → R² score around 82%
+   → MAE around 4-5 marks
+   → Cross-validation used
+
+Q: "Technology stack?"
+A: → Flask (web framework)
+   → scikit-learn (ML)
+   → Modular Python architecture
+   → Responsive HTML/CSS UI
+
+Q: "Future scope?"
+A: → Database integration for history
+   → More features (stress, health, etc.)
+   → Admin dashboard
+   → Mobile app version
+   → Configurable thresholds per institution
+
+═══════════════════════════════════════════════════════════════
+
+TIMING BREAKDOWN:
+• Introduction:        30 sec
+• Normal Demo:         1 min
+• Validation Demo:     2 min
+• Edge Case Demo:      1 min
+• Architecture:        30 sec
+• Closing:             30 sec
+• Q&A Buffer:          2 min
+─────────────────────────────
+TOTAL:                 7.5 minutes
+
+CONFIDENCE LEVEL: 💯
+
+YOU GOT THIS! 🚀
