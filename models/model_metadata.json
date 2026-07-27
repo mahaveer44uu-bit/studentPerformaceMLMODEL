@@ -1,0 +1,19 @@
+{
+  "model_name": "GradientBoostingRegressor",
+  "feature_names": [
+    "StudyHours",
+    "Attendance",
+    "PreviousMarks",
+    "SleepHours"
+  ],
+  "holdout_metrics": {
+    "train_r2": 0.7834677060619848,
+    "test_r2": 0.8081987619364163,
+    "train_mae": 4.130591230599677,
+    "test_mae": 3.90549367901063,
+    "train_rmse": 5.1745035534511,
+    "test_rmse": 4.986888690660356,
+    "r2_gap": -0.024731055874431473
+  },
+  "note": "Metrics computed from saved model on 80/20 split (random_state=42)"
+}

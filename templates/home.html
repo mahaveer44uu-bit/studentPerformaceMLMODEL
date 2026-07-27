@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Prediction - AI Powered System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            background-attachment: fixed;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(30, 60, 114, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2ee59d 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #2ee59d;
+        }
+
+        .nav-link.active {
+            color: #2ee59d;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #2ee59d 0%, #00d4ff 100%);
+            border-radius: 2px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 180px 40px 100px;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #2ee59d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2ee59d 0%, #00d4ff 100%);
+            color: #083b2a;
+            box-shadow: 0 10px 40px rgba(46, 229, 157, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(46, 229, 157, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* STATISTICS SECTION */
+        .statistics {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(46, 229, 157, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(46, 229, 157, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(46, 229, 157, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #2ee59d 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 100px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(46, 229, 157, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            margin: 80px 40px;
+            border-radius: 30px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #2ee59d;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                🎓 Student AI
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link active">Home</a></li>
+                <li><a href="/prediction" class="nav-link">Prediction</a></li>
+                <li><a href="/about" class="nav-link">About Model</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1 class="hero-title">AI-Powered Student Performance Prediction</h1>
+        <p class="hero-subtitle">
+            Leverage machine learning to predict academic performance, get personalized study recommendations, 
+            and achieve your target marks with data-driven insights.
+        </p>
+        <div class="hero-buttons">
+            <a href="/prediction" class="btn btn-primary">
+                Try Prediction Now
+            </a>
+            <a href="/about" class="btn btn-secondary">
+                Learn About Model
+            </a>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <h2 class="section-title">Powerful Features</h2>
+        <p class="section-subtitle">
+            Everything you need to predict, plan, and improve academic performance
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3 class="feature-title">AI Prediction Engine</h3>
+                <p class="feature-description">
+                    Advanced Linear Regression model trained on 1000+ student records with 75.34% accuracy. 
+                    Get reliable predictions based on study patterns.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">Smart Target Planner</h3>
+                <p class="feature-description">
+                    Set your target marks and get personalized study recommendations with daily hour calculations 
+                    and feasibility analysis.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">Performance Analytics</h3>
+                <p class="feature-description">
+                    Visualize your predicted performance with interactive charts, grade analysis, 
+                    and comprehensive performance metrics.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">Personalized Suggestions</h3>
+                <p class="feature-description">
+                    Receive tailored study suggestions based on your attendance, sleep hours, 
+                    and previous performance patterns.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">Grade Prediction</h3>
+                <p class="feature-description">
+                    Predict your letter grade (A+, A, B, C, D, F) with color-coded visual feedback 
+                    and performance status indicators.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3 class="feature-title">Risk Assessment</h3>
+                <p class="feature-description">
+                    Early identification of at-risk students with color-coded status badges 
+                    (Achievable, Challenging, Unrealistic).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS SECTION -->
+    <section class="statistics">
+        <h2 class="section-title">System Performance</h2>
+        <p class="section-subtitle">
+            Real metrics from our machine learning model
+        </p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">75.34%</div>
+                <div class="stat-label">Model Accuracy (R²)</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Training Records</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Key Input Features</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Personalized Suggestions</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <h2 class="cta-title">Ready to Predict Your Performance?</h2>
+        <p class="cta-text">
+            Get instant predictions, personalized study plans, and achieve your academic goals 
+            with our AI-powered system.
+        </p>
+        <a href="/prediction" class="btn btn-primary">
+            Get Started Now
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-text">
+            AI-Powered Student Performance Prediction System
+        </p>
+        <p class="footer-text">
+            Built with Machine Learning • Flask • Python
+        </p>
+    </footer>
+</body>
+</html>

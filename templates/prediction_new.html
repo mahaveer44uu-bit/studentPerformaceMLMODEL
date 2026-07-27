@@ -544,21 +544,22 @@
         <div class="main-grid">
             <!-- ===== LEFT PANEL: INPUT FORM ===== -->
             <div class="glass-card">
-                <h2 class="card-title">Student Information</h2>
+                <h2 class="card-title">📋 Student Information</h2>
                 <p class="card-subtitle">Enter student details for AI-powered prediction</p>
 
                 <form action="/predict" method="POST">
                     <div class="form-group">
-                        <label class="form-label">Student Name</label>
+                        <label class="form-label">👤 Student Name</label>
                         <input 
                             type="text" 
                             name="StudentName" 
                             class="form-input" 
+                            placeholder="e.g., John Doe"
                             required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Study Hours (per day)</label>
+                        <label class="form-label">📚 Study Hours (per day)</label>
                         <input 
                             type="number" 
                             name="StudyHours" 
@@ -566,11 +567,12 @@
                             step="0.1" 
                             min="0.5" 
                             max="15" 
+                            placeholder="e.g., 5.5"
                             required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Attendance (%)</label>
+                        <label class="form-label">📊 Attendance (%)</label>
                         <input 
                             type="number" 
                             name="Attendance" 
@@ -578,11 +580,12 @@
                             step="0.1" 
                             min="45" 
                             max="100" 
+                            placeholder="e.g., 85"
                             required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Previous Marks</label>
+                        <label class="form-label">📝 Previous Marks</label>
                         <input 
                             type="number" 
                             name="PreviousMarks" 
@@ -590,11 +593,12 @@
                             step="0.1" 
                             min="30" 
                             max="100" 
+                            placeholder="e.g., 75"
                             required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Sleep Hours (per day)</label>
+                        <label class="form-label">😴 Sleep Hours (per day)</label>
                         <input 
                             type="number" 
                             name="SleepHours" 
@@ -602,11 +606,12 @@
                             step="0.1" 
                             min="3" 
                             max="10" 
+                            placeholder="e.g., 7"
                             required>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Exam Date</label>
+                        <label class="form-label">📅 Exam Date</label>
                         <input 
                             type="date" 
                             name="ExamDate" 
@@ -628,22 +633,23 @@
                     </script>
 
                     <div class="form-group">
-                        <label class="form-label">Target Marks</label>
+                        <label class="form-label">🎯 Target Marks</label>
                         <input 
                             type="number" 
                             name="TargetMarks" 
                             class="form-input" 
                             min="0" 
                             max="100" 
+                            placeholder="e.g., 90"
                             required>
                     </div>
 
                     <div class="button-group">
                         <button type="submit" class="btn btn-primary">
-                            Predict Performance
+                            ✨ Predict Performance
                         </button>
                         <a href="/" class="btn btn-secondary">
-                            Reset
+                            🔄 Reset
                         </a>
                     </div>
                 </form>
@@ -658,7 +664,7 @@
                         <h2 class="error-title">Validation Error</h2>
                         <div class="error-message">{{ error | safe }}</div>
                         <button onclick="location.reload()" class="btn-retry">
-                            Try Again
+                            🔄 Try Again
                         </button>
                     </div>
 
@@ -666,11 +672,11 @@
                     <!-- PREDICTION RESULTS -->
                     <div class="result-header">
                         <div>
-                            <h2 class="card-title">Analysis Dashboard</h2>
+                            <h2 class="card-title">📊 Analysis Dashboard</h2>
                             <p class="card-subtitle">AI-powered performance prediction and insights</p>
                         </div>
                         <div class="student-badge">
-                            {{ name }}
+                            👤 {{ name }}
                         </div>
                     </div>
 
@@ -689,7 +695,7 @@
                                     {{ grade }}
                                 </div>
                                 <div class="grade-info">
-                                    <h3>Grade {{ grade }}</h3>
+                                    <h3>🏆 Grade {{ grade }}</h3>
                                     <p class="grade-status">{{ status }}</p>
                                 </div>
                             </div>
@@ -701,7 +707,7 @@
 
                     <!-- MODEL INFO -->
                     <div class="info-card">
-                        <h3>Model Information</h3>
+                        <h3>🤖 Model Information</h3>
                         <div class="info-grid">
                             <div class="info-item">
                                 <div class="info-item-label">Algorithm</div>
@@ -724,22 +730,22 @@
 
                     <!-- INPUT SUMMARY -->
                     <div class="info-card">
-                        <h3>Input Summary</h3>
+                        <h3>📋 Input Summary</h3>
                         <div class="info-grid">
                             <div class="info-item">
-                                <div class="info-item-label">Study Hours</div>
+                                <div class="info-item-label">📚 Study Hours</div>
                                 <div class="info-item-value">{{ study }} hrs/day</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-item-label">Attendance</div>
+                                <div class="info-item-label">📊 Attendance</div>
                                 <div class="info-item-value">{{ attendance }}%</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-item-label">Previous Marks</div>
+                                <div class="info-item-label">📝 Previous Marks</div>
                                 <div class="info-item-value">{{ previous }}/100</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-item-label">Sleep Hours</div>
+                                <div class="info-item-label">😴 Sleep Hours</div>
                                 <div class="info-item-value">{{ sleep }} hrs/day</div>
                             </div>
                         </div>
@@ -747,7 +753,7 @@
 
                     <!-- TARGET PLANNER -->
                     <div class="info-card">
-                        <h3>Smart Target Planner</h3>
+                        <h3>🎯 Smart Target Planner</h3>
                         
                         <div class="target-status-badge {% if 'Achievable' in target_status %}achievable{% elif 'Challenging' in target_status %}challenging{% else %}unrealistic{% endif %}">
                             {{ target_status }}
@@ -755,31 +761,31 @@
 
                         <div class="info-grid">
                             <div class="info-item">
-                                <div class="info-item-label">Target Marks</div>
+                                <div class="info-item-label">🎯 Target Marks</div>
                                 <div class="info-item-value">{{ target_marks }}/100</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-item-label">Days Remaining</div>
+                                <div class="info-item-label">📅 Days Remaining</div>
                                 <div class="info-item-value">{{ days_remaining }} Days</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-item-label">Gap to Target</div>
+                                <div class="info-item-label">📈 Gap to Target</div>
                                 <div class="info-item-value">{{ gap }} Marks</div>
                             </div>
                             <div class="info-item">
-                                <div class="info-item-label">Recommended Study</div>
+                                <div class="info-item-label">💪 Recommended Study</div>
                                 <div class="info-item-value">{{ recommended_study }} hrs/day</div>
                             </div>
                         </div>
 
                         <div class="planner-advice">
-                            <strong>AI Recommendation:</strong> {{ planner_message }}
+                            <strong>💡 AI Recommendation:</strong> {{ planner_message }}
                         </div>
                     </div>
 
                     <!-- SUGGESTIONS -->
                     <div class="info-card">
-                        <h3>Personalized Suggestions</h3>
+                        <h3>💡 Personalized Suggestions</h3>
                         <ul class="suggestions-list">
                             {% for suggestion in suggestions %}
                                 <li>{{ suggestion }}</li>
@@ -807,7 +813,7 @@
 
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
-            <p>AI-Powered Student Performance Prediction & Smart Study Planning System</p>
+            <p>🤖 AI-Powered Student Performance Prediction & Smart Study Planning System</p>
             <p style="margin-top: 8px; font-size: 0.9rem;">Built with Machine Learning • Linear Regression Model • 75.34% Accuracy</p>
         </footer>
     </div>

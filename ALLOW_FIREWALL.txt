@@ -1,0 +1,42 @@
+═══════════════════════════════════════════════════════════════
+HOW TO ALLOW PYTHON IN FIREWALL
+═══════════════════════════════════════════════════════════════
+
+Method 1: When Alert Appears
+────────────────────────────────────────────────────────────────
+When you run python app.py, Windows may show a firewall alert.
+✓ Click "Allow access"
+✓ Make sure "Private networks" is checked
+
+
+Method 2: Manual Firewall Setting
+────────────────────────────────────────────────────────────────
+1. Press Windows key
+2. Search "Windows Defender Firewall"
+3. Click "Allow an app through firewall"
+4. Click "Change settings" button
+5. Click "Allow another app..."
+6. Browse to python.exe location:
+   - Usually: C:\Users\YourName\AppData\Local\Programs\Python\Python3X\python.exe
+   - Or where Python is installed
+7. Click "Add"
+8. Make sure both "Private" and "Public" are checked
+9. Click "OK"
+
+
+Method 3: Quick PowerShell Command (Run as Administrator)
+────────────────────────────────────────────────────────────────
+netsh advfirewall firewall add rule name="Python Flask" dir=in action=allow protocol=TCP localport=5000
+
+
+Method 4: Temporarily Disable Firewall (For Testing Only!)
+────────────────────────────────────────────────────────────────
+⚠️ Only for demo/testing - not recommended for security
+1. Windows Defender Firewall
+2. Turn Windows Defender Firewall on or off
+3. Turn off for Private networks (temporarily)
+4. Test if friend can access
+5. Turn it back ON after demo!
+
+
+═══════════════════════════════════════════════════════════════

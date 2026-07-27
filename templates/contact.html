@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Student Performance Prediction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            min-height: 100vh; 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            color: #eef4ff; 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            background-attachment: fixed;
+        }
+        
+        nav { 
+            width: min(1200px, calc(100% - 40px)); 
+            margin: 0 auto; 
+            padding: 24px 0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 20px; 
+        }
+        
+        .brand { 
+            color: #fff; 
+            font-weight: 800; 
+            text-decoration: none; 
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .links { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 30px; 
+        }
+        
+        .links a { 
+            color: rgba(255, 255, 255, 0.8); 
+            text-decoration: none; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .links a:hover, .links a.active { 
+            color: #2ee59d; 
+        }
+        
+        main { 
+            width: min(900px, calc(100% - 40px)); 
+            margin: 40px auto 80px; 
+        }
+        
+        .hero-section {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 0%, #2ee59d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card { 
+            padding: 35px; 
+            background: rgba(255, 255, 255, 0.1); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); 
+            border-radius: 24px; 
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card h2 { 
+            color: #fff; 
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .contact-info {
+            display: grid;
+            gap: 18px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(8px);
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .contact-content {
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .contact-value a {
+            color: #2ee59d;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: #00d4ff;
+            text-decoration: underline;
+        }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .stat-box {
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            color: #2ee59d;
+            font-weight: 700;
+        }
+
+        .help-section {
+            margin-top: 15px;
+            padding: 20px;
+            background: rgba(46, 229, 157, 0.1);
+            border-left: 4px solid #2ee59d;
+            border-radius: 10px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .help-section strong {
+            color: #2ee59d;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta { 
+            display: inline-block; 
+            padding: 16px 40px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            color: #083b2a; 
+            background: linear-gradient(135deg, #2ee59d 0%, #00d4ff 100%); 
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(46, 229, 157, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(46, 229, 157, 0.5);
+        }
+        
+        @media (max-width: 768px) { 
+            nav { 
+                align-items: flex-start; 
+                flex-direction: column; 
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item:hover {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a class="brand" href="/">🎓 Student Performance Prediction</a>
+        <div class="links">
+            <a href="/">Home</a>
+            <a href="/prediction">Predict</a>
+            <a href="/about">About Model</a>
+            <a class="active" href="/contact">Contact</a>
+        </div>
+    </nav>
+    
+    <main>
+        <section class="hero-section">
+            <h1>Contact & Support</h1>
+            <p>Get in touch for queries, feedback, or collaboration opportunities</p>
+        </section>
+
+        <div class="contact-grid">
+            <!-- Developer Contact Card -->
+            <div class="card">
+                <h2>Developer Information</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-content">
+                            <div class="contact-label">Full Name</div>
+                            <div class="contact-value">Mahaveer Meghwal</div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-content">
+                            <div class="contact-label">Email Address</div>
+                            <div class="contact-value">
+                                <a href="mailto:mahaveer44uu@gmail.com">mahaveer44uu@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-content">
+                            <div class="contact-label">GitHub Profile</div>
+                            <div class="contact-value">
+                                <a href="https://github.com/mahaveer44uu-bit" target="_blank">github.com/mahaveer44uu-bit</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-content">
+                            <div class="contact-label">LinkedIn Profile</div>
+                            <div class="contact-value">
+                                <a href="https://www.linkedin.com/in/mahaveer-verma-04303b379" target="_blank">linkedin.com/in/mahaveer-verma-04303b379</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Details Card -->
+            <div class="card">
+                <h2>Project Details</h2>
+                <div class="project-stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Technology Stack</div>
+                        <div class="stat-value">Python + Flask</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">ML Algorithm</div>
+                        <div class="stat-value">Linear Regression</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Model Accuracy</div>
+                        <div class="stat-value">~75% R²</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Training Data</div>
+                        <div class="stat-value">5000 Records</div>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <strong>Libraries Used:</strong> Scikit-learn, Pandas, NumPy, Flask, Pickle
+                    <br><br>
+                    <strong>Purpose:</strong> Academic ML project for predicting student performance based on study patterns, attendance, previous marks, and sleep hours.
+                </div>
+            </div>
+
+            <!-- Support & Help Card -->
+            <div class="card">
+                <h2>Report Issues & Feedback</h2>
+                <div class="help-section" style="margin-top: 0; border-left-color: #f093fb;">
+                    <strong>Found a Bug?</strong> Please email me with details about the issue, including screenshots if possible.
+                    <br><br>
+                    <strong>Have Suggestions?</strong> I'm always looking to improve! Share your ideas for new features or enhancements.
+                    <br><br>
+                    <strong>Need Help?</strong> If you're facing any issues using the prediction system, feel free to reach out via email or LinkedIn.
+                    <br><br>
+                    <strong>Collaboration?</strong> Open to collaboration opportunities and project discussions. Let's connect!
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <a href="/prediction" class="cta">
+                Try Prediction Tool
+            </a>
+        </div>
+    </main>
+</body>
+</html>

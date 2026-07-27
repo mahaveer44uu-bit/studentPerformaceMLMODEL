@@ -22,7 +22,26 @@ else:
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    """Landing page"""
+    return render_template("home.html")
+
+
+@app.route("/prediction")
+def prediction_page():
+    """Prediction form page"""
+    return render_template("prediction.html")
+
+
+@app.route("/about")
+def about():
+    """About Model page with ML details"""
+    return render_template("about.html")
+
+
+@app.route("/contact")
+def contact():
+    """Contact page"""
+    return render_template("contact.html")
 
 
 @app.route("/predict", methods=["POST"])
@@ -44,8 +63,8 @@ def predict():
         # Validate name
         if not name or len(name) < 2:
             return render_template(
-                "index.html",
-                error="❌ Please enter a valid student name (minimum 2 characters)."
+                "prediction.html",
+                error="❌ Please enter a valid student name (minimum 2 characters)."            
             )
         
         # Get numeric values
@@ -57,7 +76,7 @@ def predict():
             target_marks = float(request.form.get("TargetMarks", 0))
         except ValueError:
             return render_template(
-                "index.html",
+                "prediction.html",
                 error="❌ Please enter valid numbers for all fields."
             )
         
@@ -76,7 +95,7 @@ def predict():
         if sleep < 0 or sleep > 24:
             errors.append("😴 Sleep Hours must be between 0 and 24")
         
-        if target_marks < 0 or target_marks > 100:
+        if target_marks < 0 or target_marks > 100: 
             errors.append("🎯 Target Marks must be between 0 and 100")
         
         # Additional logical validations
@@ -85,7 +104,7 @@ def predict():
         
         if errors:
             return render_template(
-                "index.html",
+                "prediction.html",
                 error="<br>".join(errors)
             )
 
@@ -97,10 +116,24 @@ def predict():
             exam = datetime.strptime(exam_date, "%Y-%m-%d").date()
             days_remaining = (exam - today).days
         except:
-            days_remaining = 0
+            return render_template(
+                "prediction.html",
+                error="❌ Invalid exam date format. Please select a valid date."
+            )
 
+        # Validate: Exam date must be in future
         if days_remaining < 0:
-            days_remaining = 0
+            return render_template(
+                "prediction.html",
+                error="❌ Exam date cannot be in the past! Please select a future date."
+            )
+        
+        # Validate: Exam date should be reasonable (not too far)
+        if days_remaining > 365:
+            return render_template(
+                "prediction.html",
+                error="❌ Exam date is too far (more than 1 year). Please select a date within the next year."
+            )
 
         # ===========================
         # MODEL PREDICTION
@@ -207,7 +240,7 @@ def predict():
         # ===========================
 
         return render_template(
-            "index.html",
+            "prediction.html",
             name=name,
             prediction=prediction,
             grade=grade,
@@ -224,7 +257,8 @@ def predict():
             recommended_study=recommended_study,
             planner_message=planner_message,
             gap=gap,
-            progress=progress
+            progress=progress,
+            show_results=True
         )
 
     except Exception as e:
@@ -232,20 +266,27 @@ def predict():
         import traceback
         traceback.print_exc()
         return render_template(
-            "index.html",
+            "prediction.html",
             error=f"An error occurred: {str(e)}"
         )
 
 
 if __name__ == "__main__":
     print("\n" + "="*60)
-    print("Student Performance Prediction System - Original")
+    print("🎓 Student Performance Prediction System")
     print("="*60)
     if model is not None:
         print("✓ Model loaded successfully!")
+        print("✓ Ready for predictions!")
     else:
         print("✗ Warning: Model not loaded!")
-    print("Starting server at: http://localhost:5000")
+    print("\n📍 Server running at:")
+    print("   Local:   http://localhost:5000")
+    print("   Network: http://0.0.0.0:5000")
+    print("\n💡 To share with others:")
+    print("   1. Find your IP: Run GET_IP_ADDRESS.bat")
+    print("   2. Share: http://YOUR_IP:5000")
     print("="*60 + "\n")
     
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
