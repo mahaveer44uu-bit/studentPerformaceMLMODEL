@@ -4,7 +4,7 @@ AI-Powered academic performance prediction using Machine Learning.
 
 ## 🚀 Features
 
-- **AI Prediction Engine** - Linear Regression model trained on 5000+ student records
+- **AI Prediction Engine** - Gradient Boosting model trained on 5000 student records
 - **Smart Target Planner** - Personalized study recommendations with feasibility analysis
 - **Performance Analytics** - Grade prediction with detailed insights
 - **Input Validation** - Two-layer validation (client + server side)
@@ -12,16 +12,18 @@ AI-Powered academic performance prediction using Machine Learning.
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Python, Flask
-- **ML:** Scikit-learn, NumPy, Pandas
+- **Backend:** Python 3.x, Flask 2.2.5
+- **ML:** Scikit-learn 1.4.2, NumPy 1.26.4, Pandas
 - **Frontend:** HTML5, CSS3, JavaScript
-- **Deployment:** Render (Free tier)
+- **Deployment:** Render (Production server: Gunicorn)
 
 ## 📊 Model Information
 
-- **Algorithm:** Linear Regression
+- **Algorithm:** Gradient Boosting Regressor
 - **Training Data:** 5000 student records
-- **Accuracy:** ~75% R²
+- **Test Accuracy:** 80.82% R²
+- **Train Accuracy:** 78.35% R²
+- **Mean Absolute Error:** 3.91 marks
 - **Features:** Study Hours, Attendance, Previous Marks, Sleep Hours
 
 ## 🌐 Live Demo

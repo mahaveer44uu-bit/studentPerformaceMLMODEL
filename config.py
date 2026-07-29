@@ -33,7 +33,7 @@ class Config:
     
     # Dataset Configuration
     DATASET_PATH = os.path.join(BASE_DIR, 'dataset', 'dataset.csv')
-    DATASET_SIZE = 2000  # Increased from 1000
+    DATASET_SIZE = 5000  # Current dataset size
     RANDOM_SEED = 42
     
     # Feature Configuration
