@@ -2,20 +2,21 @@
 cls
 echo.
 echo ========================================
-echo    FINAL DEPLOYMENT FIX
+echo    CLEAN DEPLOYMENT - No Config Conflicts
 echo ========================================
 echo.
-echo Pushing to GitHub...
+echo Removing render.yaml (using runtime.txt only)
+echo Pushing clean configuration...
 echo.
 
 git add .
-git commit -m "Final fix: Python 3.10 + compatible packages"
+git commit -m "Remove render.yaml, use runtime.txt for Python 3.9"
 git push origin main
 
 echo.
 echo ========================================
-echo    SUCCESS! 
-echo    Wait 5-10 minutes for Render
+echo    PUSHED! Wait 5-10 minutes
+echo    Manual Render config may be needed
 echo ========================================
 echo.
 pause
