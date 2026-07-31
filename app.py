@@ -1,23 +1,51 @@
 from flask import Flask, render_template, request
-import joblib
+import pandas as pd
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.model_selection import train_test_split
 from datetime import datetime
 import os
 
 app = Flask(__name__)
 
-# Load model from new location
-model_path = os.path.join("models", "student_model.pkl")
-if os.path.exists(model_path):
-    model = joblib.load(model_path)
-    print(f"✓ Model loaded from: {model_path}")
-else:
-    # Try old location as fallback
-    if os.path.exists("student_model.pkl"):
-        model = joblib.load("student_model.pkl")
-        print("✓ Model loaded from: student_model.pkl")
-    else:
-        print("✗ Model not found!")
-        model = None
+# Global model variable
+model = None
+
+def train_model():
+    """Train model on startup"""
+    global model
+    try:
+        print("=" * 60)
+        print("🤖 Training ML Model...")
+        
+        # Load dataset
+        df = pd.read_csv('dataset.csv')
+        print(f"✓ Dataset loaded: {len(df)} rows")
+        
+        # Prepare features
+        X = df[['StudyHours', 'Attendance', 'PreviousMarks', 'SleepHours']]
+        y = df['FinalMarks']
+        
+        # Train model
+        model = GradientBoostingRegressor(
+            n_estimators=100,
+            learning_rate=0.1,
+            max_depth=5,
+            random_state=42
+        )
+        
+        model.fit(X, y)
+        score = model.score(X, y)
+        
+        print(f"✓ Model trained! Accuracy: {score*100:.2f}%")
+        print("=" * 60)
+        return True
+    except Exception as e:
+        print(f"✗ Error training model: {e}")
+        return False
+
+# Train model on startup
+print("\n🚀 Starting Flask App...")
+train_model()
 
 
 @app.route("/")
